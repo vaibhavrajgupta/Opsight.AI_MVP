@@ -5,5 +5,5 @@ const port = process.env.PORT;
 const server = http.createServer(app);
 
 server.listen(port, () => {
-    console.log("Server Started at the port");
+    console.log(`Server Started at the ${port}`);
 });

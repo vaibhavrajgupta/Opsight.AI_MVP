@@ -12,3 +12,14 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+model User {
+  id           String    @id @default(cuid())
+  name         String    
+  password     String
+  org_name     String    @unique
+  email        String    @unique // Enforces required and unique email
+  createdAt    DateTime  @default(now()) @db.Timestamp(6) // Sets default and data type
+  fcm_token    String?
+  refreshToken String?
+}

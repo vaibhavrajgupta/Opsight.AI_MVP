@@ -1,24 +1,21 @@
 import express from "express";
-import bodyParser from "body-parser";
 import cookieParser from "cookie-parser";
 import compression from "compression";
 import cors from "cors";
 import dotenv from "dotenv";
+// import router from "./routes";
 
 const app = express();
 
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(cookieParser());
+app.use(cors({ origin: "*", credentials: true }));
+app.use(express.json({ limit: "16kb" }));
+app.use(express.urlencoded({ extended: true }));
+app.use(express.static("public"));
 app.use(compression());
-app.use(cors({ credentials: true }));
+app.use(cookieParser());
 dotenv.config();
 
+import apis from "../infrastructure/routes/index.js";
 
-app.get("/", (req, res)=>{
-    res.send("Hello World");
-})
-
-
-
+app.use("/api", apis);
 export default app;

@@ -7,7 +7,7 @@
   "scripts": {
     "dev": "nodemon -r dotenv/config src/infrastructure/server.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "postinstall": "prisma generate"
+    "postinstall": "prisma generate --schema=./src/domain/prisma/schema.prisma"
   },
   "keywords": [],
   "author": "",

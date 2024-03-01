@@ -1,5 +1,5 @@
-import { connectToDB } from "../domain/db/index.js";
 import app from "./app.js";
+import { connectToDB } from "../domain/db/index.js";
 import http from "http";
 import dotenv from "dotenv";
 

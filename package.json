@@ -7,7 +7,7 @@
   "scripts": {
     "dev": "nodemon -r dotenv/config src/infrastructure/server.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "deploy": "prisma generate && render deploy"
+    "postinstall": "prisma generate"
   },
   "keywords": [],
   "author": "",
